@@ -2,10 +2,6 @@ const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const passport = require('passport')
 
-module.exports.index = (req, res, next) => {
-  res.render('index')
-}
-
 module.exports.login = (req, res, next) => {
   res.render('login/index')
 }

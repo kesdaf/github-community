@@ -1,18 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const baseController = require('../controllers/base.controller')
 const userController = require('../controllers/user.controller')
 const passport =  require('passport')
 
+const authMiddleware = require('../middlewares/auth.middleware')
+
 module.exports = router;
+
+//BASE
+router.get('/', authMiddleware.isAuthenticated, baseController.index)
 
 //LOGIN
 //Hay que crear el middel de autentificacion
-router.get('/', userController.index)
-router.get('/logout', userController.logOut)
-router.get('/login', userController.login)
-router.post('/login', userController.dologin)
+router.get('/login', authMiddleware.isNotAuthenticated, userController.login)
+router.post('/login', authMiddleware.isNotAuthenticated, userController.dologin)
+router.get('/logout', authMiddleware.isAuthenticated, userController.logOut)
 
-router.get('/auth/github/', passport.authenticate('github'))
-router.get('/auth/github/callback', userController.doLoginSocial)
+router.get('/auth/github/', authMiddleware.isNotAuthenticated, passport.authenticate('github'))
+router.get('/auth/github/callback',authMiddleware.isNotAuthenticated, userController.doLoginSocial)
 
 
