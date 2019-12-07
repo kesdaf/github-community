@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/user.controller')
+const passport =  require('passport')
 
 module.exports = router;
 
@@ -9,5 +10,7 @@ module.exports = router;
 router.get('/login', userController.login)
 router.post('/login', userController.dologin)
 
+router.get('/auth/github/', passport.authenticate('github'))
+router.get('/auth/github/callback', userController.doLoginSocial)
 
 
