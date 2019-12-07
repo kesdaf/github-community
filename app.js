@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
  */
 require('./config/hbs.config');
 require('./config/db.config');
-require('./config/mailer.config');
+//require('./config/mailer.config');
 const session = require('./config/session.config');
 
 
