@@ -2,13 +2,14 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
+const createError = require('http-errors');
 
 /**
  * Handlebars and Mongoose config
  */
 require('./config/hbs.config');
 require('./config/db.config');
-require('./config/mailer.config');
+//require('./config/mailer.config');
 const session = require('./config/session.config');
 
 
@@ -45,7 +46,7 @@ app.use('/', router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  next(createError(404)); 
 });
 
 // error handler
