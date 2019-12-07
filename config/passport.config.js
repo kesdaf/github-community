@@ -16,27 +16,24 @@ passport.use(
 
 
 function authenticateGitHubUser(accessToken, refreshToken, profile, done) {
-  // to see the structure of the data in received response:
-  console.log(profile);
-
-  // User.findOne({ slack: profile.id })
-  //   .then(user => {
-  //     if (user) {
-  //       done(null, user);
-  //       return;
-  //     }
-  //     const newUser = new User({
-  //       name: profile.user.name,
-  //       email: profile.user.email,
-  //       username: profile.displayName,
-  //       password: '12345678',
-  //       avatar: profile.user.image_192,
-  //       slack: profile.user.id
-  //     })
-  //     newUser.save()
-  //       .then(respuesta => done(null, respuesta))
-  //   })
-  //   .catch(err => done(err)); // closes User.findOne()
+  User.findOne({ 'social.github': profile.id })
+    .then(user => {
+      if (user) {
+        done(null, user);
+        return;
+      }
+      const newUser = new User({
+        name: profile.displayName,
+        email: profile.emails[0].value,
+        username: profile.username,
+        password: '12345678',
+        avatar: profile.photos[0].value,
+        'social.github': profile.id
+      })
+      newUser.save()
+        .then(respuesta => done(null, respuesta))
+    })
+    .catch(err => done(err));
 } 
 
 module.exports = passport.initialize();

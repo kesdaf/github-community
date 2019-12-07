@@ -40,7 +40,6 @@ const userSchema = new mongoose.Schema({
   languages:
   {
     type:[String]
-
   },
   validateToken: {
     type: String,
@@ -50,7 +49,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  social:{
+  social: {
     github: String
   }
 }, { timestamps: true })

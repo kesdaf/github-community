@@ -7,6 +7,8 @@ module.exports = router;
 
 //LOGIN
 //Hay que crear el middel de autentificacion
+router.get('/', userController.index)
+router.get('/logout', userController.logOut)
 router.get('/login', userController.login)
 router.post('/login', userController.dologin)
 
