@@ -1,17 +1,20 @@
+require('dotenv').config()
+
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
+const passportConfig = require('./config/passport.config')
+const session = require('./config/session.config');
+
+require('./config/hbs.config');
+require('./config/db.config');
 
 /**
  * Handlebars and Mongoose config
- */
-require('./config/hbs.config');
-require('./config/db.config');
 //require('./config/mailer.config');
-const session = require('./config/session.config');
-
+**/
 
 /**
  * Configure express
@@ -24,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session);
+app.use(passportConfig);
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.user

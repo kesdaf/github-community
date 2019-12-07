@@ -34,13 +34,15 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Password is required'],
     minlength: [8, 'Password needs at last 8 chars']
   },
+  profile_url: {
+    type: String
+  },
   avatar: {
     type: String,
   },
   languages:
   {
     type:[String]
-
   },
   validateToken: {
     type: String,
@@ -50,7 +52,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  social:{
+  social: {
     github: String
   }
 }, { timestamps: true })
