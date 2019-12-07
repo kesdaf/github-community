@@ -3,7 +3,7 @@
     <img src="{{currentUser.avatar}}">
     <div class="navbar__user__info">
       <span class="navbar__user__info__name">{{currentUser.name}}</span>
-      <span class="navbar__user__info__username">{{currentUser.username}}</span>
+      <a href="{{ currentUser.profile_url }}" class="navbar__user__info__username" target="_blank">{{currentUser.username}}</a>
     </div>
   </div>
   <div class="navbar_form">

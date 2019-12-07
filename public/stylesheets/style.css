@@ -187,5 +187,9 @@ code {
 .navbar__user__info__username {
   display: block;
   opacity: 0.8;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.navbar__user__info__username:hover {
+  color: #fff;
 }

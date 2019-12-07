@@ -27,6 +27,7 @@ function authenticateGitHubUser(accessToken, refreshToken, profile, done) {
         email: profile.emails[0].value,
         username: profile.username,
         password: '12345678',
+        profile_url: profile.profileUrl,
         avatar: profile.photos[0].value,
         'social.github': profile.id
       })
