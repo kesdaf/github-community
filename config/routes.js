@@ -4,6 +4,10 @@ const userController = require('../controllers/user.controller')
 
 module.exports = router;
 
-
+//LOGIN
 //Hay que crear el middel de autentificacion
-router.get('/', userController.login)
+router.get('/login', userController.login)
+router.post('/login', userController.dologin)
+
+
+
