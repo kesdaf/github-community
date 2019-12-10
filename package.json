@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.7",
-    "cloudinary": "^1.17.0",
+    "cloudinary": "^1.18.0",
     "connect-mongo": "^3.1.2",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
