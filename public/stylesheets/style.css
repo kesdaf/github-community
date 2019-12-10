@@ -4,13 +4,6 @@ html {
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale
 }
-*,
-*:before,
-*:after {
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box
-}
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -194,4 +187,21 @@ code {
 }
 .navbar__user__info__username:hover {
   color: #fff;
+}
+.navbar_form {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+  padding: 2rem 0;
+}
+.navbar_form label {
+  display: block;
+  font-size: 1.3rem;
+}
+.navbar_form label input {
+  margin-right: 5px;
+} 
+.navbar_form input[type="submit"] {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
 }
