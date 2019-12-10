@@ -23,8 +23,8 @@ function authenticateGitHubUser(accessToken, refreshToken, profile, done) {
         return;
       }
       const newUser = new User({
-        name: profile.displayName,
-        email: profile.emails[0].value,
+        name: !profile.displayName? profile.username: profile.displayName,
+        email: !profile.emails? null: profile.emails[0].value,
         username: profile.username,
         password: '12345678',
         profile_url: profile.profileUrl,
