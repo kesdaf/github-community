@@ -30,7 +30,10 @@ module.exports.updateProfile = (req, res, next) => {
       usr.languages = req.body.language
 
       usr.save()
-        .then(success => console.log(success))
+        .then(success => {
+          req.session.user = success
+          res.redirect('/')
+        })
         .catch(err => console.log(err))
     })
     .catch(err => {

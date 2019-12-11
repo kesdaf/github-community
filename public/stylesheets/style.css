@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   font-size: 3.488rem;
 }
 h2 {
@@ -204,4 +204,13 @@ code {
 .navbar_form input[type="submit"] {
   font-size: 1.2rem;
   margin-top: 1.5rem;
+}
+
+.profile_form form {
+  display: flex;
+}
+.profile_form img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 5px;
 }
