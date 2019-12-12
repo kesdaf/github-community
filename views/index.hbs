@@ -4,7 +4,11 @@
   </div>
   <div class="col-9">
     <div class="container pt-5">
-      <p>contenido de la app</p>  
+      {{#each results}}
+
+        <p>{{this.full_name}} -  {{this.stargazers_count}} - <a target="_blank" href="{{this.html_url}}">link</a></p>
+      {{/each}}
+  
     </div>
   </div>
 </div>
