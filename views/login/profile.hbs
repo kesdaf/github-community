@@ -5,7 +5,7 @@
   {{>navbar}}
   </div>
   <div class="col-9">
-    <div class="container pt-5">
+    <div class="container pt-5 pr-5">
       <h1>Edit profile</h1> 
       <div class="profile_form">
         <form action="/profile" method="POST" enctype="multipart/form-data">
@@ -25,16 +25,19 @@
                 <label>Password:<input type="password" name="email" placeholder="Your new password"></label>
               </div>
               <div class="form-info__languages">
-                <label><input type="checkbox" name="language" value="JavaScript">JavaScript</label>
-                <label><input type="checkbox" name="language" value="Python">Python</label>
-                <label><input type="checkbox" name="language" value="Java">Java</label>
-                <label><input type="checkbox" name="language" value="Ruby">Ruby</label>
-                <label><input type="checkbox" name="language" value="PHP">PHP</label>
-                <label><input type="checkbox" name="language" value="C++">C++</label>
-                <label><input type="checkbox" name="language" value="TypeScript">TypeScript</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="JavaScript">JavaScript</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="Python">Python</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="Java">Java</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="Ruby">Ruby</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="PHP">PHP</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="C++">C++</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="TypeScript">TypeScript</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="TypeScript">TypeScript</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="TypeScript">TypeScript</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="language" value="TypeScript">TypeScript</label>
               </div>
 
-              <input type="submit" class="btn btn-success" value="Enviar">
+              <input type="submit" class="btn btn-info" value="Save changes">
             </div>
           </div>
         </form>
