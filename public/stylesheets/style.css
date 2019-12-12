@@ -208,9 +208,61 @@ code {
 
 .profile_form form {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-.profile_form img {
+.form-avatar {
+  position: relative;
+  width: 20%;
+}
+.form-info {
+  position: relative;
+  width: 75%;
+  font-size: 1.4rem;
+}
+.form-avatar img {
+  display: block;
   width: 100%;
-  max-width: 200px;
   border-radius: 5px;
+}
+.form-avatar input {
+  position: absolute;
+  opacity: 0;
+  left: -1000px;
+}
+.form-avatar label {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  padding: 5px 0;
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+.form-avatar label svg {
+  margin-right: 5px;
+}
+.form-info__personal label {
+  display: block;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.form-info__personal label input {
+  display: block;
+  min-width: 40%;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  font-size: 1.4rem;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem;
 }
