@@ -8,18 +8,17 @@
   </div>
   <div class="navbar_form">
     <form action="/" method="GET">
-      <label><input type="checkbox" value="JavaScript">JavaScript</label>
-      <label><input type="checkbox" value="Python">Python</label>
-      <label><input type="checkbox" value="Java">Java</label>
-      <label><input type="checkbox" value="Ruby">Ruby</label>
-      <label><input type="checkbox" value="PHP">PHP</label>
-      <label><input type="checkbox" value="C++">C++</label>
-      <label><input type="checkbox" value="TypeScript">TypeScript</label>
+      {{#each currentUser.languages}}
+        <label><input type="checkbox" name="language" value="{{this}}">{{this}}</label>
+      {{/each}}
       <input class="btn btn-info" type="submit" value="Buscar">
     </form>
   </div>
   <div class="navbar_communitty">
     Comunidades
   </div>
-  <a href="/logout">log out</a>
+  <div class="navbar_options">
+    <a href="/profile">profile</a>
+    <a href="/logout">log out</a>
+  </div>
 </div>

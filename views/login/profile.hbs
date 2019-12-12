@@ -1,15 +1,44 @@
-<h1>register languages</h1> 
-{{currentUser.avatar}}
-<div class="profile_form">
-  <form action="/profile" method="POST" enctype="multipart/form-data">
-    <input type="file" name="avatar">
-    <label><input type="checkbox" name="language" value="JavaScript">JavaScript</label>
-    <label><input type="checkbox" name="language" value="Python">Python</label>
-    <label><input type="checkbox" name="language" value="Java">Java</label>
-    <label><input type="checkbox" name="language" value="Ruby">Ruby</label>
-    <label><input type="checkbox" name="language" value="PHP">PHP</label>
-    <label><input type="checkbox" name="language" value="C++">C++</label>
-    <label><input type="checkbox" name="language" value="TypeScript">TypeScript</label>
-    <input type="submit" class="btn btn-success" value="Enviar">
-  </form>
+
+
+<div class="row">
+  <div class="col-3">
+  {{>navbar}}
+  </div>
+  <div class="col-9">
+    <div class="container pt-5 pr-5">
+      <h1>Edit profile</h1> 
+      <div class="profile_form">
+        <form action="/profile" method="POST" enctype="multipart/form-data">
+            <div class="form-avatar">
+              <img src="{{currentUser.avatar}}">
+              <input type="file" id="avatar" name="avatar">
+              <label for="avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 528.899 528.899"><path fill="#fff" d="M328.883 89.125l107.59 107.589-272.34 272.34L56.604 361.465l272.279-272.34zm189.23-25.948l-47.981-47.981c-18.543-18.543-48.653-18.543-67.259 0l-45.961 45.961 107.59 107.59 53.611-53.611c14.382-14.383 14.382-37.577 0-51.959zM.3 512.69c-1.958 8.812 5.998 16.708 14.811 14.565l119.891-29.069L27.473 390.597.3 512.69z"/></svg>
+                Choose a file</label>
+            </div>
+            <div class="form-info">
+
+              <div class="form-info__personal">
+                <label>User Name:<input type="text" name="username" value="{{currentUser.username}}"></label>
+                <label>Name:<input type="text" name="name" value="{{currentUser.name}}"></label>
+                <label>Email:<input type="text" name="email" value="{{currentUser.email}}"></label>
+                <label>Password:<input type="password" name="password" placeholder="Your new password"></label>
+              </div>
+              <div class="form-info__languages">
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="JavaScript">JavaScript</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Python">Python</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Java">Java</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Ruby">Ruby</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="PHP">PHP</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="C++">C++</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="TypeScript">TypeScript</label>
+              </div>
+
+              <input type="submit" class="btn btn-info" value="Save changes">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

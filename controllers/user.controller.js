@@ -20,18 +20,19 @@ module.exports.profile = (req, res, next) => {
   res.render('login/profile', { user: req.session.user })
 }
 module.exports.updateProfile = (req, res, next) => {
-  User.findById(req.session.user._id)
-    .then(usr => {
-      if(req.file) {
-        usr.avatar = req.file.url
-      } else if (!usr.avatar) {
-        usr.avatar = 'img/github-logo.svg'
-      }
-      usr.languages = req.body.language
 
-      usr.save()
-        .then(success => console.log(success))
-        .catch(err => console.log(err))
+  req.file ? req.body.avatar = req.file.url : false
+  !req.body.name ? delete req.body.name : false
+  !req.body.email ? delete req.body.email : false
+  !req.body.username ? delete req.body.username : false
+  !req.body.password ? delete req.body.password : false
+
+  console.log(req.body)
+
+  User.findByIdAndUpdate(req.session.user._id, req.body, { new: true })
+    .then(usr => {
+      req.session.user = usr
+      res.redirect('/')
     })
     .catch(err => {
       console.log(err)
