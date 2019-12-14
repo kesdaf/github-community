@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const User = require('../models/user.model')
+const Languages = require('../models/languages.model')
 const passport = require('passport')
 
 
@@ -55,7 +56,10 @@ module.exports.logOut = (req, res, next) => {
 }
 
 module.exports.profile = (req, res, next) => {
-  res.render('login/profile', { user: req.session.user })
+  Languages.find({},{_id:0,name:1,value:1}).then(languages => {
+    res.render('login/profile', { user: req.session.user, languages})
+  })
+  
 }
 module.exports.new = (req, res, next) => {
   res.render('login/profile', { new: true })

@@ -10,6 +10,7 @@ module.exports = router;
 
 //BASE
 router.get('/', authMiddleware.isAuthenticated, baseController.index)
+router.post('/', authMiddleware.isAuthenticated, baseController.sessionLanguages)
 
 //LOGIN
 //Hay que crear el middel de autentificacion

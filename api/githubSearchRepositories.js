@@ -9,11 +9,6 @@ const githubSearch = ({languages,date}) =>{
         languages = ['Javascript'];
     }
     const searchDate = new Date(date).toISOString().split('T')[0];
-    const params = new URLSearchParams();
-    params.append('sort', 'starts');
-    params.append('q', `is:public+pushed:${searchDate}`)
-
-    console.log(params.toString())
 
     return axios.get(`http://api.github.com/search/repositories?sort=starts&q=is:public+language:[${languages.join(',')}]+pushed:${searchDate}`)
     .then(success => {
