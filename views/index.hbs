@@ -4,11 +4,29 @@
   </div>
   <div class="col-9">
     <div class="container pt-5">
+      <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Starts</th>
+          <th scope="col">Repository</th>
+          <th scope="col">Description</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Language</th>
+          <th scope="col">Link</th>
+        </tr>
+      </thead>
+  <tbody>
       {{#each results}}
-
-        <p>{{this.full_name}} -  {{this.stargazers_count}} - <a target="_blank" href="{{this.html_url}}">link</a></p>
+        <tr>
+          <th scope="row"> {{this.stargazers_count}}</th>
+          <td>{{this.name}}</td>
+          <td>{{this.description}}</td>
+          <td><a target="_blank" href="{{this.owner.html_url}}">{{this.owner.login}}</a></td>
+          <td>{{this.language}} </td>
+          <td><a target="_blank" href="{{this.html_url}}"><span class="fa fa-link"></span></a></td>
+        </tr>
       {{/each}}
-  
+  </tbody>
     </div>
   </div>
 </div>

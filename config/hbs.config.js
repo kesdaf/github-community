@@ -8,3 +8,13 @@ hbs.registerHelper('date', (date) => {
   var d = new Date(date)
   return [format(d.getDate()), format(d.getMonth() + 1), d.getFullYear()].join('/')
 })
+
+hbs.registerHelper('ifIn', function(elem, list, options) {
+  if(!list){
+    return options.inverse(this);
+  }
+  if(list.indexOf(elem) > -1) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
