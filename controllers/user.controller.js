@@ -8,7 +8,45 @@ module.exports.login = (req, res, next) => {
 }
 
 module.exports.dologin = (req, res, next) => {
-  
+  const { email, password } = req.body
+
+  if (!email || !password) {
+    return res.render('login/index', { user: req.body })
+  }
+
+  User.findOne({ email: email })
+    .then(user => {
+      if (!user) {
+        res.render('login/index', {
+          user: req.body,
+          error: { password: 'invalid password' }
+        })
+      } else {
+        return user.checkPassword(password)
+          .then(match => {
+            if (!match) {
+              res.render('login/index', {
+                user: req.body,
+                error: { password: 'invalid password' }
+              })
+            } else {
+              req.session.user = user;
+              res.redirect('/');
+            }
+          })
+      }
+    })
+    .catch(error => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.render('users/login', {
+          user: req.body,
+          error: error.error
+        })
+      } else {
+        next(error);
+      }
+    });
+
 }
 
 module.exports.logOut = (req, res, next) => {
@@ -46,7 +84,8 @@ module.exports.updateProfile = (req, res, next) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        avatar: req.body.avatar
+        avatar: req.body.avatar,
+        languages: req.body.languages
       })
       user.save()
       .then((newUser) => {
