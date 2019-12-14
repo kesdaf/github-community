@@ -62,7 +62,9 @@ module.exports.profile = (req, res, next) => {
   
 }
 module.exports.new = (req, res, next) => {
-  res.render('login/profile', { new: true })
+  Languages.find({},{_id:0,name:1,value:1}).then(languages => {
+    res.render('login/profile', { new:true, languages})
+  })
 }
 
 module.exports.updateProfile = (req, res, next) => {
