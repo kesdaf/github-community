@@ -144,6 +144,8 @@ code {
 
 /* NAVBAR */
 .navbar {
+  width: 20%;
+  position: fixed;
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -271,6 +273,10 @@ code {
   border: 1px solid #d1d5da;
   margin-top: 0.5rem;
   margin-bottom: 1.2rem;
+}
+.form-info__personal label input.is-invalid {
+  border: 1px solid rgba(191, 15, 31, 0.52);
+  
 }
 .form-info__languages {
   padding: 20px 0;
