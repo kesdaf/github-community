@@ -1,15 +1,30 @@
 <div class="row">
-  <div class="col-3">
-  {{>navbar}}
-  </div>
-  <div class="col-9">
+  {{#unless new}}
+    <div class="col-3">
+      {{>navbar}}
+    </div>
+  {{/unless}}
+
+  {{#if new}}
+    <div class="col-12">
+  {{else}}
+    <div class="col-9">
+  {{/if}}
     <div class="container pt-5 pr-5">
-      <h1>Edit profile</h1> 
+      {{#if new}}
+      <h1>Create profile</h1>
+      {{else}}
+      <h1>Edit profile</h1>
+      {{/if}}
       <div class="profile_form">
         <form action="/profile" method="POST" enctype="multipart/form-data">
             <div class="form-avatar">
-              <img src="{{currentUser.avatar}}">
-              <input type="file" id="avatar" name="avatar">
+              {{#if new}}
+                <img src="img/avatar.png">
+              {{else}}
+                <img src="{{currentUser.avatar}}">
+              {{/if}}
+              <input type="file" id="avatar" name="avatar" >
               <label for="avatar">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 528.899 528.899"><path fill="#fff" d="M328.883 89.125l107.59 107.589-272.34 272.34L56.604 361.465l272.279-272.34zm189.23-25.948l-47.981-47.981c-18.543-18.543-48.653-18.543-67.259 0l-45.961 45.961 107.59 107.59 53.611-53.611c14.382-14.383 14.382-37.577 0-51.959zM.3 512.69c-1.958 8.812 5.998 16.708 14.811 14.565l119.891-29.069L27.473 390.597.3 512.69z"/></svg>
                 Choose a file</label>
@@ -17,12 +32,12 @@
             <div class="form-info">
 
               <div class="form-info__personal">
-                <label>User Name:<input type="text" name="username" value="{{currentUser.username}}"></label>
-                <label>Name:<input type="text" name="name" value="{{currentUser.name}}"></label>
-                <label>Email:<input type="text" name="email" value="{{currentUser.email}}"></label>
-                <label>Password:<input type="password" name="password" placeholder="Your new password"></label>
+                <label>User Name:<input type="text" name="username" value="{{currentUser.username}}" {{#if error.username}}class="is-invalid" {{/if}}></label>
+                <label>Name:<input type="text" name="name" value="{{currentUser.name}}" {{#if error.name}}class="is-invalid" {{/if}}></label>
+                <label>Email:<input type="text" name="email" value="{{currentUser.email}}" {{#if error.email}}class="is-invalid" {{/if}}></label>
+                <label>Password:<input type="password" name="password" placeholder="Your new password" {{#if error.password}}class="is-invalid" {{/if}}></label>
               </div>
-              <div class="form-info__languages">
+              <div class="form-info__languages">                
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="JavaScript">JavaScript</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Python">Python</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Java">Java</label>
@@ -31,8 +46,11 @@
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="C++">C++</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="TypeScript">TypeScript</label>
               </div>
-
-              <input type="submit" class="btn btn-info" value="Save changes">
+              {{#if new}}
+                <input type="submit" class="btn btn-info" value="Create user">
+              {{else}}
+                <input type="submit" class="btn btn-info" value="Save changes">
+              {{/if}}
             </div>
           </div>
         </form>
