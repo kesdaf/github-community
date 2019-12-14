@@ -1,5 +1,7 @@
 
-
+<script src="javascript.js">
+  const languages = {{{languages}}}
+</script>
 <div class="row">
   <div class="col-3">
   {{>navbar}}
@@ -24,14 +26,18 @@
                 <label>Email:<input type="text" name="email" value="{{currentUser.email}}"></label>
                 <label>Password:<input type="password" name="password" placeholder="Your new password"></label>
               </div>
+            
               <div class="form-info__languages">
-                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="JavaScript">JavaScript</label>
+                {{!-- <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="JavaScript">JavaScript</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Python">Python</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Java">Java</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="Ruby">Ruby</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="PHP">PHP</label>
                 <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="C++">C++</label>
-                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="TypeScript">TypeScript</label>
+                <label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="TypeScript">TypeScript</label> --}}
+                {{#each languages}}
+<label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="{{this.value}}" {{#ifIn this.value ../currentUser.languages }}checked{{/ifIn}}>{{this.name}}</label>
+                {{/each}}
               </div>
 
               <input type="submit" class="btn btn-info" value="Save changes">

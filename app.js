@@ -32,6 +32,10 @@ app.use(passportConfig);
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.user
   req.currentUser = req.session.user
+
+  req.currentLanguages = req.session.languages
+  res.locals.currentLanguages = req.session.languages
+
   next()
 })
 
