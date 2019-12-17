@@ -1,10 +1,19 @@
-<div class="row">
-  <div class="col-3">
+<div class="content">
   {{>navbar}}
-  </div>
-  <div class="col-9">
-    <div class="col-4">
-      <form action="/" method="POST">
+  <div class="content-info">
+    <h1>Best repositories</h1>
+    {{#each results}}
+      <a href="{{this.html_url}}" class="card-language">
+        <small class="card-language__owner">{{this.owner.login}}</small>
+        <h2 class="card-language__name">{{this.name}}</h2>
+        <p class="card-language__description">{{this.description}}</p>
+        <span class="card-language__language">{{this.language}}</span>
+        <span class="card-language__stars">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.867 53.867"><path fill="#EFCE4A" d="M26.934 1.318l8.322 16.864 18.611 2.705L40.4 34.013l3.179 18.536-16.645-8.751-16.646 8.751 3.179-18.536L0 20.887l18.611-2.705z"/></svg>
+          {{#rounded this.stargazers_count }}{{/rounded}}</span>
+      </a>
+    {{/each}}
+	   <form action="/" method="POST">
         <div class="form-group">
           <label for="searchDate">Select Date to search in github</label>
           <select class="form-control" id="searchDate" name="searchDate">
@@ -17,33 +26,8 @@
           <input class="btn btn-info" type="submit" value="Buscar">
         </div>
       </form>
-    </div>
-    
-    <div class="container pt-5">
-      <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Starts</th>
-          <th scope="col">Repository</th>
-          <th scope="col">Description</th>
-          <th scope="col">Owner</th>
-          <th scope="col">Language</th>
-          <th scope="col">Link</th>
-        </tr>
-      </thead>
-  <tbody>
-      {{#each results}}
-        <tr>
-          <th scope="row"> {{this.stargazers_count}}</th>
-          <td>{{this.name}}</td>
-          <td>{{this.description}}</td>
-          <td><a target="_blank" href="{{this.owner.html_url}}">{{this.owner.login}}</a></td>
-          <td>{{this.language}} </td>
-          <td><a target="_blank" href="{{this.html_url}}"><span class="fa fa-link"></span></a></td>
-        </tr>
-      {{/each}}
-  </tbody>
-    </div>
   </div>
 </div>
+
+
 

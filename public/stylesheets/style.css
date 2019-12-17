@@ -145,6 +145,7 @@ code {
 /* NAVBAR */
 .navbar {
   width: 20%;
+  left: 0;
   position: fixed;
   height: 100vh;
   overflow-y: scroll;
@@ -297,3 +298,66 @@ code {
   font-size: 1.4rem;
   padding: 1rem 2rem ;
 }
+
+.card-language {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 3rem;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+  text-decoration: none;
+  color: #333;
+  transition: all ease 0.2s;
+  padding-right: 20rem;
+}
+
+.card-language:hover {
+  color: #333;
+  text-decoration: none;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
+}
+
+.card-language h2 {
+  margin-top: 0;
+  text-transform: capitalize;
+  font-size: 2.6rem;
+}
+.card-language__description {
+  font-size: 1.4rem;
+}
+.card-language__owner {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: rgba(0,0,0,0.5);
+  font-weight: bold;
+}
+.card-language__stars {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+.card-language__stars svg {
+  display: block;
+  width: 2.5rem;
+  margin: 0 auto 1rem auto;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-end;
+}
+.content-info {
+  width: 79%;
+  padding: 3rem 5rem;
+} 
