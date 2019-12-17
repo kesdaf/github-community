@@ -145,6 +145,7 @@ code {
 /* NAVBAR */
 .navbar {
   width: 20%;
+  left: 0;
   position: fixed;
   height: 100vh;
   overflow-y: scroll;
@@ -342,4 +343,21 @@ code {
   right: 3rem;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
 }
+.card-language__stars svg {
+  display: block;
+  width: 2.5rem;
+  margin: 0 auto 1rem auto;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-end;
+}
+.content-info {
+  width: 79%;
+  padding: 3rem 5rem;
+} 

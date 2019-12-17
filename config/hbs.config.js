@@ -18,3 +18,8 @@ hbs.registerHelper('ifIn', function(elem, list, options) {
   }
   return options.inverse(this);
 });
+
+hbs.registerHelper('rounded', number => {
+  const num = Number(number)
+  return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
+});
