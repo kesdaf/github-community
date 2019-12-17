@@ -36,6 +36,8 @@ app.use((req, res, next) => {
   req.currentLanguages = req.session.languages
   res.locals.currentLanguages = req.session.languages
 
+  req.currentSearchDate = req.session.date
+  res.locals.currentSearchDate = req.session.date  
   next()
 })
 
