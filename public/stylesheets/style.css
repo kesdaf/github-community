@@ -361,3 +361,19 @@ code {
   width: 79%;
   padding: 3rem 5rem;
 } 
+.content-info__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.content-info__title .title {
+  display: flex;
+}
+.content-info__title h1 {
+  margin-bottom: 0;
+  font-size: 3rem;
+}
+.content-info__title .title form:not(:last-child) {
+  padding-right: 5px;
+}
