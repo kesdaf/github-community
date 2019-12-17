@@ -2,7 +2,7 @@ const search = require('../api/githubSearchRepositories')
 
 module.exports.index = (req, res, next) => {
   let languages = req.currentLanguages;
-  const date = req.session.date;
+  const date = req.currentSearchDate ;
   if(!Array.isArray(languages)){
     languages =[languages]
   }
@@ -13,7 +13,15 @@ module.exports.index = (req, res, next) => {
 }
 
 module.exports.sessionLanguages = (req, res, next) => {
-  req.session.languages = req.body.languages;
+  console.log(req.body)
+  if(req.body.languages){
+    req.session.languages = req.body.languages;
+  }else if(req.body.searchDate){
+    req.session.date = req.body.searchDate;
+  }else{
+    req.session.languages = [];
+  }
+
   res.redirect('/')
 }
 
