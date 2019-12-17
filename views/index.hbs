@@ -13,6 +13,19 @@
           {{#rounded this.stargazers_count }}{{/rounded}}</span>
       </a>
     {{/each}}
+	   <form action="/" method="POST">
+        <div class="form-group">
+          <label for="searchDate">Select Date to search in github</label>
+          <select class="form-control" id="searchDate" name="searchDate">
+            <option value="today">Today</option>
+            <option value="week">This week</option>
+            <option value="month">This Month</option>
+            <option value="year">This year</option>
+            <option value="time">All time</option>
+          </select>
+          <input class="btn btn-info" type="submit" value="Buscar">
+        </div>
+      </form>
   </div>
 </div>
 
