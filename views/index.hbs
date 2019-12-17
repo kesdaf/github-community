@@ -4,29 +4,16 @@
   </div>
   <div class="col-9">
     <div class="container pt-5">
-      <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Starts</th>
-          <th scope="col">Repository</th>
-          <th scope="col">Description</th>
-          <th scope="col">Owner</th>
-          <th scope="col">Language</th>
-          <th scope="col">Link</th>
-        </tr>
-      </thead>
-  <tbody>
       {{#each results}}
-        <tr>
-          <th scope="row"> {{this.stargazers_count}}</th>
-          <td>{{this.name}}</td>
-          <td>{{this.description}}</td>
-          <td><a target="_blank" href="{{this.owner.html_url}}">{{this.owner.login}}</a></td>
-          <td>{{this.language}} </td>
-          <td><a target="_blank" href="{{this.html_url}}"><span class="fa fa-link"></span></a></td>
-        </tr>
+        <a href="{{this.html_url}}" class="card-language">
+          <small class="card-language__owner">{{this.owner.login}}</small>
+          <h2 class="card-language__name">{{this.name}}</h2>
+          <p class="card-language__description">{{this.description}}</p>
+          <span class="card-language__language">{{this.language}}</span>
+          <span class="card-language__stars">
+            {{ this.stargazers_count }}</span>
+        </a>
       {{/each}}
-  </tbody>
     </div>
   </div>
 </div>

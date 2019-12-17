@@ -297,3 +297,49 @@ code {
   font-size: 1.4rem;
   padding: 1rem 2rem ;
 }
+
+.card-language {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 3rem;
+  border-radius: 0.3rem;
+  -webkit-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 11px -4px rgba(0,0,0,0.1);
+  margin-bottom: 3rem;
+  text-decoration: none;
+  color: #333;
+  transition: all ease 0.2s;
+  padding-right: 20rem;
+}
+
+.card-language:hover {
+  color: #333;
+  text-decoration: none;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
+}
+
+.card-language h2 {
+  margin-top: 0;
+  text-transform: capitalize;
+  font-size: 2.6rem;
+}
+.card-language__description {
+  font-size: 1.4rem;
+}
+.card-language__owner {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: rgba(0,0,0,0.5);
+  font-weight: bold;
+}
+.card-language__stars {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
