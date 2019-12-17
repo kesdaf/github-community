@@ -1,7 +1,32 @@
 <div class="content">
   {{>navbar}}
   <div class="content-info">
-    <h1>Best repositories</h1>
+    <div class="content-info__title">
+      <h1>Best repositories</h1>
+      <div class="title">
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="today">
+          <input class="btn btn-info" type="submit" value="Today">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="week">
+          <input class="btn btn-info" type="submit" value="This week">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="month">
+          <input class="btn btn-info" type="submit" value="This mouth">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="year">
+          <input class="btn btn-info" type="submit" value="This year">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="time">
+          <input class="btn btn-info" type="submit" value="All time">
+        </form>
+      </div>
+    </div>
+    
     {{#each results}}
       <a href="{{this.html_url}}" class="card-language">
         <small class="card-language__owner">{{this.owner.login}}</small>
@@ -13,19 +38,7 @@
           {{#rounded this.stargazers_count }}{{/rounded}}</span>
       </a>
     {{/each}}
-	   <form action="/" method="POST">
-        <div class="form-group">
-          <label for="searchDate">Select Date to search in github</label>
-          <select class="form-control" id="searchDate" name="searchDate">
-            <option value="today">Today</option>
-            <option value="week">This week</option>
-            <option value="month">This Month</option>
-            <option value="year">This year</option>
-            <option value="time">All time</option>
-          </select>
-          <input class="btn btn-info" type="submit" value="Buscar">
-        </div>
-      </form>
+	   
   </div>
 </div>
 
