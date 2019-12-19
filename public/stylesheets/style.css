@@ -377,3 +377,19 @@ code {
 .content-info__title .title form:not(:last-child) {
   padding-right: 5px;
 }
+
+.title input {
+  font-size: 1.2rem;
+}
+
+.navbar_options {
+  width: 100%;
+} 
+.navbar_options a {
+  /* display: block;
+  width: 100%; */
+  font-size: 13px;
+}
+.navbar_options a:first-child {
+  margin-right: 10px;
+}
