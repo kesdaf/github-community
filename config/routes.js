@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const baseController = require('../controllers/base.controller')
 const userController = require('../controllers/user.controller')
+const favoritesController =  require('../controllers/favorites.controller')
 const passport =  require('passport')
 const uploadCloud = require('./cloudinary.config');
 const authMiddleware = require('../middlewares/auth.middleware')
@@ -25,3 +26,7 @@ router.get('/auth/github/', authMiddleware.isNotAuthenticated, passport.authenti
 router.get('/auth/github/callback',authMiddleware.isNotAuthenticated, userController.doLoginSocial)
 
 
+//FAVORITES
+router.post('/favorite/:id', authMiddleware.isAuthenticated, favoritesController.doFavorites)
+router.post('/favorite/:id/delete', authMiddleware.isAuthenticated, favoritesController.removeFavorites)
+router.get('/favorite', authMiddleware.isAuthenticated, favoritesController.showFavorites)

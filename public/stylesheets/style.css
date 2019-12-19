@@ -52,6 +52,9 @@ code {
   font-size: 1.2rem;
 }
 
+.hidden {
+  display: none;
+}
 
 /* LOGIN VIEW */
 .login {

@@ -6,17 +6,10 @@ const FavoriteSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    url:{
+    idRepo:{
         type:String,
         required:true
-    },
-    description:{
-        type:String
-    },
-    date:{
-        type:String
-    },
-    language:String
+    }
 }, { timestamps: true });
 
 const Favorite = mongoose.model('Favorite', FavoriteSchema);

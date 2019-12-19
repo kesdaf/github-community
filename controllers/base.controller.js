@@ -1,15 +1,22 @@
 const search = require('../api/githubSearchRepositories')
+const Favorites =  require('../models/favorites.model')
 
 module.exports.index = (req, res, next) => {
   let languages = req.currentLanguages;
-  const date = req.currentSearchDate ;
+  
   if(!Array.isArray(languages)){
     languages =[languages]
   }
 
-  search({languages, date}).then(results =>{
-        res.render('index', {results})
-  }).catch(err=> console.log(err))
+  Favorites.find({ idUser: req.currentUser._id }, { _id: 0, idRepo: 1 })
+    .then(success => {
+      console.log(success)
+      req.currentUser.favorites = success
+      const date = req.currentSearchDate ;
+      search({languages, date}).then(results =>{
+            res.render('index', {results})
+      }).catch(err=> console.log(err))
+    })
 }
 
 module.exports.sessionLanguages = (req, res, next) => {
