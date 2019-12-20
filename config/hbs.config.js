@@ -13,11 +13,24 @@ hbs.registerHelper('ifIn', function(elem, list, options) {
   if(!list){
     return options.inverse(this);
   }
+
   if(list.indexOf(elem) > -1) {
     return options.fn(this);
   }
   return options.inverse(this);
 });
+
+
+hbs.registerHelper('ifInObject', function(elem, list, options) {
+    if(!list){
+      return options.inverse(this);
+    }
+  
+    if(list.some(e => e._id == elem)) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
 
 hbs.registerHelper('ifInArray', function(elem, list, options) {
   if(!list){

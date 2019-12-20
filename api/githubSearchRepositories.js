@@ -1,25 +1,23 @@
 const axios = require('axios');
 
 const githubSearch = ({languages,date}) =>{
-    console.log(languages)
     let lang = 'javascript';
+
     if(languages &&languages.length>0){
      if(languages.length >1){
-        lang =`[${languages.join(',')}]`;
-     }else{
-        lang = languages[0];
+        lang =`[${languages.map(e=>e.value).join(',')}]`;
+     }else if (languages[0]){
+        lang = languages[0].value;
      }
 
     }
-    console.log(languages)    
     const searchDate = getDate(date);
 
     const url = searchDate? `http://api.github.com/search/repositories?sort=starts&q=is:public+language:${lang}+pushed:${searchDate}`:
     `http://api.github.com/search/repositories?sort=starts&q=is:public+language:${lang}`;
-    console.log(url)
+
     return axios.get(url)
     .then(success => {
-        //   console.log(success)
           if(success.data && success.data.items){
               return success.data.items
           }

@@ -36,8 +36,13 @@ app.use((req, res, next) => {
   req.currentLanguages = req.session.languages
   res.locals.currentLanguages = req.session.languages
 
+  if (!req.session.date) {
+    req.session.date = 'week';
+  }
+
   req.currentSearchDate = req.session.date
-  res.locals.currentSearchDate = req.session.date  
+  res.locals.currentSearchDate = req.session.date
+
   next()
 })
 
@@ -56,7 +61,7 @@ app.use('/', router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404)); 
+  next(createError(404));
 });
 
 // error handler

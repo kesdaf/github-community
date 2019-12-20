@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
   },
   languages:
   {
-    type:[String]
+    type:[{type: mongoose.Schema.Types.ObjectId, ref:'Languages'}]
   },
   validateToken: {
     type: String,
