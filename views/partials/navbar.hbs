@@ -4,6 +4,7 @@
     <div class="navbar__user__info">
       <span class="navbar__user__info__name">{{currentUser.name}}</span>
       <a href="{{ currentUser.profile_url }}" class="navbar__user__info__username" target="_blank">{{currentUser.username}}</a>
+      <a href="/favorite">Mis favorites</a>
     </div>
   </div>
   <div class="navbar_form">
@@ -18,7 +19,7 @@
     Comunidades
   </div>
   <div class="navbar_options">
-    <a href="/profile">profile</a>
-    <a href="/logout">log out</a>
+    <a href="/profile" class="btn btn-info"><i class="fa fa-cog" aria-hidden="true"></i> Profile</a>
+    <a href="/logout" class="btn btn-danger"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
   </div>
 </div>
