@@ -454,3 +454,7 @@ code {
 .content-info--favorites .card-language .card-language__stars svg {
   margin: 0;
 }
+
+.content-info--favorites .content-info__title {
+  align-items: self-start;
+}
