@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon -e hbs,js,css app.js",
+    "start": "node ./bin/www",
+    "start-dev": "nodemon ./bin/www",
     "seeds": "node ./bin/seeds"
   },
   "author": "",
