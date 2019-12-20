@@ -397,3 +397,11 @@ code {
 .navbar_options a:first-child {
   margin-right: 10px;
 }
+
+
+.favorite {
+  margin-top: 2rem;
+}
+.favorite button {
+  font-size: 1.1rem;
+}

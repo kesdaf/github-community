@@ -19,11 +19,11 @@
           </span>
 
           <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}hidden{{else}}{{/ifInArray}}" action="/favorite/{{this.id}}">
-            <input type="submit" value="Add to favorites">
+            <button type="submit" class="btn btn-outline-success" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Favorites</button>
           </form>
 
           <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}{{else}}hidden{{/ifInArray}}" action="/favorite/{{this.id}}/delete">
-            <input type="submit" value="Remove from favorites">
+            <button type="submit" class="btn btn-outline-danger"><i class="fa fa-minus" aria-hidden="true"></i> Remove from favorites</button>
           </form>
 
         </a>
