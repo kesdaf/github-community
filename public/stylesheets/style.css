@@ -381,7 +381,8 @@ code {
   padding-right: 5px;
 }
 
-.title input {
+.title input,
+.title a {
   font-size: 1.2rem;
 }
 
