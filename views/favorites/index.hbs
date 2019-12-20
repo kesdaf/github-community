@@ -1,8 +1,11 @@
 <div class="content">
   {{>navbar}}
-  <div class="content-info">
+  <div class="content-info content-info--favorites">
     <div class="content-info__title">
       <h1>Your favorites</h1>
+      <div class="title">
+      <a href="/" class="btn btn-info"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go home</a>
+      </div>
     </div>
       {{#each results}}
         <a target="_blank" href="{{this.html_url}}" class="card-language">
@@ -16,14 +19,19 @@
           </span>
 
           <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}hidden{{else}}{{/ifInArray}}" action="/favorite/{{this.id}}">
-            <input type="submit" value="Add to favorites">
+            <button type="submit" class="btn btn-outline-success" ><i class="fa fa-heart" aria-hidden="true"></i> Add to Favorites</button>
           </form>
 
           <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}{{else}}hidden{{/ifInArray}}" action="/favorite/{{this.id}}/delete">
-            <input type="submit" value="Remove from favorites">
+            <button type="submit" class="btn btn-outline-danger"><i class="fa fa-minus" aria-hidden="true"></i> Remove from favorites</button>
           </form>
 
         </a>
+      {{else}}
+        <span class="not-favorites">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+          Nothing here
+        </span>
       {{/each}}
   </div>
 </div>

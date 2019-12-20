@@ -216,6 +216,7 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding-bottom: 3rem;
 }
 .form-avatar {
   position: relative;
@@ -361,8 +362,10 @@ code {
   justify-content: flex-end;
 }
 .content-info {
+  position: relative;
   width: 79%;
   padding: 3rem 5rem;
+  min-height: 100vh;
 } 
 .content-info__title {
   display: flex;
@@ -381,7 +384,8 @@ code {
   padding-right: 5px;
 }
 
-.title input {
+.title input,
+.title a {
   font-size: 1.2rem;
 }
 
@@ -395,4 +399,58 @@ code {
 }
 .navbar_options a:first-child {
   margin-right: 10px;
+}
+
+
+.favorite {
+  margin-top: 2rem;
+  opacity: 0.8;
+}
+.favorite button {
+  font-size: 1.1rem;
+}
+
+.not-favorites {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0.1;
+  font-weight: bold;
+  text-align: center;
+}
+
+.not-favorites i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 8rem;
+}
+
+.content-info--favorites {
+  justify-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.content-info--favorites::after {
+  content: "";
+  flex: auto;
+}
+.content-info--favorites .content-info__title {
+  width: 100%;
+}
+
+.content-info--favorites .card-language {
+  width: 30%;
+  padding: 2rem;
+}
+.content-info--favorites .card-language .card-language__stars {
+  position: relative;
+  top: auto;
+  right: auto;
+  transform: none;
+}
+.content-info--favorites .card-language .card-language__stars svg {
+  margin: 0;
 }
