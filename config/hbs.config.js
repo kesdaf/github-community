@@ -13,12 +13,23 @@ hbs.registerHelper('ifIn', function(elem, list, options) {
   if(!list){
     return options.inverse(this);
   }
+
   if(list.indexOf(elem) > -1) {
     return options.fn(this);
   }
   return options.inverse(this);
 });
 
+hbs.registerHelper('ifInObject', function(elem, list, options) {
+    if(!list){
+      return options.inverse(this);
+    }
+  
+    if(list.some(e => e._id == elem)) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
 hbs.registerHelper('rounded', number => {
   const num = Number(number)
   return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)

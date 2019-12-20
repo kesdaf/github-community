@@ -8,7 +8,7 @@ const languagesSchema = new mongoose.Schema({
     },
     value:{
         type: String,
-        required: [true, 'Name is required'],
+        required: [true, 'Value is required'],
         trim: true
     }
 }, { timestamps: false });

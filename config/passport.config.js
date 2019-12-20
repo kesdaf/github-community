@@ -17,7 +17,8 @@ passport.use(
 
 function authenticateGitHubUser(accessToken, refreshToken, profile, done) {
   User.findOne({ 'social.github': profile.id })
-    .then(user => {
+    .populate('languages')
+    .then(user => {  
       if (user) {
         done(null, user);
         return;

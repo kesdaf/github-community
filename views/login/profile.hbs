@@ -42,7 +42,7 @@
               </div>
               <div class="form-info__languages">
                 {{#each languages}}
-					<label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="{{this.value}}" {{#ifIn this.value ../currentUser.languages }}checked{{/ifIn}}>{{this.name}}</label>
+					<label class="btn btn-outline-dark"><input type="checkbox" name="languages" value="{{this._id}}" {{#ifInObject this._id ../currentUser.languages }}checked{{/ifInObject}}>{{this.name}}</label>
                 {{/each}}
               </div>
               {{#if new}}

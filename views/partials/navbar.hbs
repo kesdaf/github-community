@@ -9,7 +9,7 @@
   <div class="navbar_form">
     <form action="/" method="POST">
       {{#each currentUser.languages}}
-        <label><input type="checkbox" name="languages" value="{{this}}" {{#ifIn this ../currentLanguages }}checked{{/ifIn}}>{{this}}</label>
+        <label><input type="checkbox" name="languages" value="{{this.value}}" {{#ifIn this.value ../currentLanguages }}checked{{/ifIn}}>{{this.name}}</label>
       {{/each}}
       <input class="btn btn-info" type="submit" value="Buscar">
     </form>

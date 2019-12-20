@@ -16,6 +16,7 @@ module.exports.dologin = (req, res, next) => {
   }
 
   User.findOne({ email: email })
+  .populate('languages')
     .then(user => {
       if (!user) {
         res.render('login/index', {
@@ -56,7 +57,7 @@ module.exports.logOut = (req, res, next) => {
 }
 
 module.exports.profile = (req, res, next) => {
-  Languages.find({},{_id:0,name:1,value:1}).then(languages => {
+  Languages.find({}).then(languages => {
     res.render('login/profile', { user: req.session.user, languages})
   })
   
@@ -77,6 +78,7 @@ module.exports.updateProfile = (req, res, next) => {
 
     if (req.session.user) {
       User.findByIdAndUpdate(req.session.user._id, req.body, { new: true })
+      .populate('languages')
       .then(usr => {
         req.session.user = usr
         res.redirect('/')
@@ -94,6 +96,7 @@ module.exports.updateProfile = (req, res, next) => {
         languages: req.body.languages
       })
       user.save()
+      .populate(languages)
       .then((newUser) => {
         res.redirect('/login')
       })
