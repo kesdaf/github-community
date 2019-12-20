@@ -19,7 +19,7 @@
           </span>
 
           <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}hidden{{else}}{{/ifInArray}}" action="/favorite/{{this.id}}">
-            <button type="submit" class="btn btn-outline-success" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Favorites</button>
+            <button type="submit" class="btn btn-outline-success" ><i class="fa fa-heart" aria-hidden="true"></i> Add to Favorites</button>
           </form>
 
           <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}{{else}}hidden{{/ifInArray}}" action="/favorite/{{this.id}}/delete">
@@ -27,6 +27,11 @@
           </form>
 
         </a>
+      {{else}}
+        <span class="not-favorites">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+          Nothing here
+        </span>
       {{/each}}
   </div>
 </div>
