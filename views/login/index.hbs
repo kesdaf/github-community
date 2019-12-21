@@ -1,0 +1,17 @@
+<div class="login">
+  <div class="login__content">
+    <form action="/login" method="POST">
+      <label>Email</label>
+      <input type="text" name="email" value="{{user.email}}" placeholder="john.doe@mail.com">
+      <label>Password</label>
+      <input type="password" name="password" value="" placeholder="Your password">
+      <input type="submit" value="Log in">
+      <small>or</small>
+      <a href="/auth/github/" class="login__content__git">
+        <img src="img/github-logo.svg">
+        Log in with GitHub
+        </a>
+    </form>
+    <a href="/new-user">Create account</a> 
+  </div>
+</div>

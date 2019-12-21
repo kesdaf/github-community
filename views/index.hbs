@@ -1,0 +1,56 @@
+<div class="content">
+  {{>navbar}}
+  <div class="content-info">
+    <div class="content-info__title">
+      <h1>{{#dateSentence currentSearchDate }}{{/dateSentence}}</h1>
+      <div class="title">
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="today">
+          <input class="btn btn-info" type="submit" value="Today">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="week">
+          <input class="btn btn-info" type="submit" value="This week">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="month">
+          <input class="btn btn-info" type="submit" value="This mouth">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="year">
+          <input class="btn btn-info" type="submit" value="This year">
+        </form>
+        <form action="/" method="POST">
+          <input type="hidden" name="searchDate" id="searchDate" value="time">
+          <input class="btn btn-info" type="submit" value="All time">
+        </form>
+      </div>
+    </div>
+    
+    {{#each results}}
+      <a target="_blank" href="{{this.html_url}}" class="card-language">
+        <small class="card-language__owner">{{this.owner.login}}</small>
+        <h2 class="card-language__name">{{this.name}}</h2>
+        <p class="card-language__description">{{this.description}}</p>
+        <span class="card-language__language">{{this.language}}</span>
+        <span class="card-language__stars">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.867 53.867"><path fill="#EFCE4A" d="M26.934 1.318l8.322 16.864 18.611 2.705L40.4 34.013l3.179 18.536-16.645-8.751-16.646 8.751 3.179-18.536L0 20.887l18.611-2.705z"/></svg>
+          {{#rounded this.stargazers_count }}{{/rounded}}
+        </span>
+
+        
+        <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}{{else}}hidden{{/ifInArray}}" action="/favorite/{{this.id}}">
+          <button type="submit" class="btn btn-outline-success" ><i class="fa fa-heart" aria-hidden="true"></i>  Add to Favorites</button>
+        </form>
+        <form method="POST" class="favorite {{#ifInArray this.id ../currentUser.favorites }}hidden{{/ifInArray}}" action="/favorite/{{this.id}}/delete">
+          <button type="submit" class="btn btn-outline-danger"><i class="fa fa-minus" aria-hidden="true"></i> Remove from favorites</button>
+        </form>
+        
+      </a>
+    {{/each}}
+	   
+  </div>
+</div>
+
+
+

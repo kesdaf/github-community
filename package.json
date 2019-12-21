@@ -11,8 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.0",
     "bcrypt": "^3.0.7",
-    "cloudinary": "^1.17.0",
+    "cloudinary": "^1.18.0",
     "connect-mongo": "^3.1.2",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
@@ -28,6 +29,7 @@
     "multer-storage-cloudinary": "^2.2.1",
     "nodemailer": "4.7.0",
     "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
     "passport-slack": "0.0.7"
   },
   "devDependencies": {
